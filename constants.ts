@@ -1,0 +1,243 @@
+export const STAGES = [
+  {
+    id: 1,
+    name: "Fear & Avoidance",
+    bpmRange: "18+ breaths/min",
+    description: "Pre-fight anxiety, hesitation, avoidance patterns",
+    color: "text-red-400",
+    bgColor: "bg-red-950",
+    borderColor: "border-red-800",
+  },
+  {
+    id: 2,
+    name: "Addiction & Rush",
+    bpmRange: "12–18 breaths/min",
+    description: "Chasing adrenaline, inconsistent output",
+    color: "text-orange-400",
+    bgColor: "bg-orange-950",
+    borderColor: "border-orange-800",
+  },
+  {
+    id: 3,
+    name: "Rhythm & Presence",
+    bpmRange: "6–12 breaths/min",
+    description: "Controlled aggression, sustainable performance",
+    color: "text-yellow-400",
+    bgColor: "bg-yellow-950",
+    borderColor: "border-yellow-800",
+  },
+  {
+    id: 4,
+    name: "Integration & Mastery",
+    bpmRange: "4 or less breaths/min",
+    description: "Demi-god state, total command",
+    color: "text-violet-400",
+    bgColor: "bg-violet-950",
+    borderColor: "border-violet-800",
+  },
+] as const;
+
+export const CHAKRAS = [
+  {
+    id: "root",
+    name: "Root",
+    note: "C",
+    sound: "AHHH",
+    color: "#CC3333",
+    tailwind: "text-red-500",
+    description: "Grounding, stance stability, fear suppression",
+    element: "earth",
+  },
+  {
+    id: "sacral",
+    name: "Sacral",
+    note: "D",
+    sound: "Oooo",
+    color: "#FF8C00",
+    tailwind: "text-orange-500",
+    description: "Fluidity, hip movement, adaptation",
+    element: "water",
+  },
+  {
+    id: "solar-plexus",
+    name: "Solar Plexus",
+    note: "E",
+    sound: "Youuuu",
+    color: "#FFD700",
+    tailwind: "text-yellow-400",
+    description: "Core power, will, aggression control",
+    element: "fire",
+  },
+  {
+    id: "heart",
+    name: "Heart",
+    note: "F",
+    sound: "SoLLLL",
+    color: "#22C55E",
+    tailwind: "text-green-500",
+    description: "Emotional regulation, courage",
+    element: "water",
+  },
+  {
+    id: "throat",
+    name: "Throat",
+    note: "G",
+    sound: "Eeeee",
+    color: "#3B82F6",
+    tailwind: "text-blue-500",
+    description: "Communication, breath projection",
+    element: "air",
+  },
+  {
+    id: "third-eye",
+    name: "Third Eye",
+    note: "A",
+    sound: "SONNN",
+    color: "#6366F1",
+    tailwind: "text-indigo-500",
+    description: "Pattern recognition, intuition",
+    element: "air",
+  },
+  {
+    id: "crown",
+    name: "Crown",
+    note: "B",
+    sound: "SAUMMM",
+    color: "#A855F7",
+    tailwind: "text-purple-500",
+    description: "Total awareness, flow state",
+    element: "ether",
+  },
+] as const;
+
+export const ELEMENTS = [
+  { id: "earth", name: "Earth", color: "text-amber-700", icon: "⬛" },
+  { id: "water", name: "Water", color: "text-blue-400", icon: "◆" },
+  { id: "fire", name: "Fire", color: "text-red-500", icon: "▲" },
+  { id: "air", name: "Air", color: "text-cyan-400", icon: "○" },
+  { id: "ether", name: "Ether", color: "text-purple-400", icon: "✦" },
+] as const;
+
+export const SUBSCRIPTION_TIERS = {
+  free: {
+    name: "Free",
+    price: 0,
+    features: [
+      "3 protocols (one per Stage 1–3)",
+      "Basic breathwork timer",
+      "No session tracking",
+      "No audio cues",
+    ],
+    locked: ["Full protocol library", "Session tracking & analytics", "Audio cues", "Stage assessments"],
+  },
+  pro: {
+    name: "Pro",
+    price: 9,
+    priceId: "price_pro_monthly",
+    features: [
+      "All 24 protocols",
+      "Full timer with audio cues",
+      "Session tracking",
+      "Stage assessments",
+      "Breath-rate analytics",
+      "Streak counter",
+    ],
+    locked: ["Personalized recommendations", "1-on-1 consultation booking", "Advanced analytics"],
+  },
+  elite: {
+    name: "Elite",
+    price: 29,
+    priceId: "price_elite_monthly",
+    features: [
+      "Everything in Pro",
+      "Personalized protocol recommendations",
+      "1-on-1 consultation booking",
+      "Advanced analytics dashboard",
+      "Priority support",
+    ],
+    locked: [],
+  },
+} as const;
+
+export const ASSESSMENT_QUESTIONS = [
+  {
+    id: "q1",
+    text: "How do you feel when you sit alone in silence to breathe?",
+    options: [
+      { value: 1, label: "Deeply uncomfortable — I avoid it" },
+      { value: 2, label: "Restless but I can manage" },
+      { value: 3, label: "Neutral — it's part of my practice" },
+      { value: 4, label: "I seek it out intentionally" },
+    ],
+  },
+  {
+    id: "q2",
+    text: "What drives you to breathwork sessions?",
+    options: [
+      { value: 1, label: "Fear of what happens if I don't" },
+      { value: 2, label: "Chasing the rush or altered states" },
+      { value: 3, label: "Building consistent rhythm" },
+      { value: 4, label: "Integration — breath as a compass" },
+    ],
+  },
+  {
+    id: "q3",
+    text: "What is your average session length?",
+    options: [
+      { value: 1, label: "Under 5 minutes" },
+      { value: 2, label: "5–15 minutes" },
+      { value: 3, label: "15–45 minutes" },
+      { value: 4, label: "45+ minutes" },
+    ],
+  },
+  {
+    id: "q4",
+    text: "How consistent is your breathwork practice?",
+    options: [
+      { value: 1, label: "I do it when anxious or panicking" },
+      { value: 2, label: "Sporadic — depends on how I feel" },
+      { value: 3, label: "Regular — most training days" },
+      { value: 4, label: "Daily — non-negotiable" },
+    ],
+  },
+  {
+    id: "q5",
+    text: "Can you maintain 6 breaths per minute for 10+ minutes?",
+    options: [
+      { value: 1, label: "No — I haven't tried" },
+      { value: 2, label: "No — I lose focus quickly" },
+      { value: 3, label: "Yes — with some effort" },
+      { value: 4, label: "Yes — effortlessly" },
+    ],
+  },
+  {
+    id: "q6",
+    text: "How do you use breath during competition or sparring?",
+    options: [
+      { value: 1, label: "I forget to breathe entirely" },
+      { value: 2, label: "I use it reactively after taking damage" },
+      { value: 3, label: "I use it between rounds to reset" },
+      { value: 4, label: "Breath guides every movement and decision" },
+    ],
+  },
+  {
+    id: "q7",
+    text: "What is your relationship with breath holds?",
+    options: [
+      { value: 1, label: "Panic after a few seconds" },
+      { value: 2, label: "Can hold 10–15 seconds comfortably" },
+      { value: 3, label: "30+ seconds without distress" },
+      { value: 4, label: "60+ seconds — I've trained this extensively" },
+    ],
+  },
+  {
+    id: "q8",
+    text: "When you breathe, what do you feel?",
+    options: [
+      { value: 1, label: "Mostly nothing — it's automatic" },
+      { value: 2, label: "Energy rushes or tingling" },
+      { value: 3, label: "Clarity and controlled focus" },
+      { value: 4, label: "A synchronicity — breath as information" },
+    ],
+  },
+] as const;

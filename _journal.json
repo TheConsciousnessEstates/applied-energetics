@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1783734101918,
+      "tag": "0000_bumpy_silvermane",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1783734205490,
+      "tag": "0001_shocking_mister_fear",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1783744902623,
+      "tag": "0002_acoustic_the_leader",
+      "breakpoints": true
+    }
+  ]
+}
