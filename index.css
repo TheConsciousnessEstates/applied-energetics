@@ -1,0 +1,350 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Applied Energetics — Dark Brutalist Design System ─────────────────── */
+
+@theme inline {
+  /* Color palette */
+  --color-background: oklch(0.07 0 0);
+  --color-foreground: oklch(0.92 0 0);
+  --color-card: oklch(0.12 0 0);
+  --color-card-foreground: oklch(0.92 0 0);
+  --color-popover: oklch(0.12 0 0);
+  --color-popover-foreground: oklch(0.92 0 0);
+  --color-primary: oklch(0.55 0.22 27);
+  --color-primary-foreground: oklch(0.98 0 0);
+  --color-secondary: oklch(0.16 0 0);
+  --color-secondary-foreground: oklch(0.92 0 0);
+  --color-muted: oklch(0.16 0 0);
+  --color-muted-foreground: oklch(0.55 0 0);
+  --color-accent: oklch(0.82 0.18 85);
+  --color-accent-foreground: oklch(0.07 0 0);
+  --color-destructive: oklch(0.55 0.22 27);
+  --color-destructive-foreground: oklch(0.98 0 0);
+  --color-border: oklch(0.22 0 0);
+  --color-input: oklch(0.16 0 0);
+  --color-ring: oklch(0.55 0.22 27);
+
+  /* Typography */
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Radius — brutalist: sharp edges */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 4px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-background); }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+}
+
+/* ── Brutalist card ──────────────────────────────────────────────────────────── */
+.brut-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  box-shadow: 4px 4px 0px oklch(0.55 0.22 27 / 0.3);
+  transition: box-shadow 150ms ease-out, transform 150ms ease-out;
+}
+.brut-card:hover {
+  box-shadow: 6px 6px 0px oklch(0.55 0.22 27 / 0.5);
+  transform: translate(-1px, -1px);
+}
+
+/* ── Brutalist buttons ───────────────────────────────────────────────────────── */
+.brut-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  box-shadow: 3px 3px 0px oklch(0.55 0.22 27 / 0.5);
+}
+.brut-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px oklch(0.55 0.22 27 / 0.5);
+}
+
+.brut-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 1px solid var(--color-primary);
+  box-shadow: 3px 3px 0px oklch(0.55 0.22 27 / 0.5);
+}
+.brut-btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px oklch(0.55 0.22 27 / 0.5);
+}
+.brut-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.brut-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  background-color: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  box-shadow: 3px 3px 0px oklch(0.55 0.22 27 / 0.5);
+}
+.brut-btn-ghost:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px oklch(0.55 0.22 27 / 0.5);
+}
+.brut-btn-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.brut-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+  border: 1px solid var(--color-accent);
+  box-shadow: 3px 3px 0px oklch(0.82 0.18 85 / 0.4);
+}
+.brut-btn-gold:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px oklch(0.82 0.18 85 / 0.4);
+}
+.brut-btn-gold:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Stage badges ────────────────────────────────────────────────────────────── */
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid;
+}
+.stage-1 { background-color: oklch(0.15 0.05 27); color: oklch(0.7 0.18 27); border-color: oklch(0.3 0.1 27); }
+.stage-2 { background-color: oklch(0.15 0.05 55); color: oklch(0.75 0.16 55); border-color: oklch(0.3 0.1 55); }
+.stage-3 { background-color: oklch(0.15 0.05 85); color: oklch(0.82 0.18 85); border-color: oklch(0.3 0.1 85); }
+.stage-4 { background-color: oklch(0.15 0.05 285); color: oklch(0.7 0.18 285); border-color: oklch(0.3 0.1 285); }
+
+/* ── Stat block ──────────────────────────────────────────────────────────────── */
+.stat-block {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  box-shadow: 4px 4px 0px oklch(0.55 0.22 27 / 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted-foreground);
+}
+
+/* ── Section header ──────────────────────────────────────────────────────────── */
+.section-header {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-foreground);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Input ───────────────────────────────────────────────────────────────────── */
+.brut-input {
+  width: 100%;
+  background-color: var(--color-input);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 150ms ease-out;
+}
+.brut-input:focus {
+  border-color: var(--color-primary);
+}
+.brut-input::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+/* ── Progress bar ────────────────────────────────────────────────────────────── */
+.brut-progress {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+.brut-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: width 0.5s ease-out;
+}
+
+/* ── Paywall overlay ─────────────────────────────────────────────────────────── */
+.paywall-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  z-index: 10;
+  background: linear-gradient(to bottom, transparent, oklch(0.07 0 0 / 0.95) 40%);
+}
+
+/* ── Tier badge ──────────────────────────────────────────────────────────────── */
+.tier-free {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted-foreground);
+}
+.tier-pro {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.tier-elite {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-pulse-ring { animation: pulse-ring 2s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.25s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.animate-fade-in { animation: fade-in 0.3s ease-out both; }
+
+/* ── Container override ──────────────────────────────────────────────────────── */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1280px;
+}
+
+/* ── Flex min-size fix ───────────────────────────────────────────────────────── */
+.flex { min-width: 0; min-height: 0; }
